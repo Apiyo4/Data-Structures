@@ -46,23 +46,31 @@ class BSTNode:
     def contains(self, target):
         # contains
         # check the value root node (self.value) against the target
+        if self.value == target:
         # if the root node value and target are the same
-            # return True
+            return True
         
         # left case
         # check if our target is less than the root val (self.value)
+        if target < self.value:
             # check if there is no child to the left (self.left) is None
-                # return False
+            if not self.left :
+                return False
             # otherwise
+            else:
                 # call contains on the left child (self.left)
+                return self.left.contains(target)
         
         # right case
         # otherwise
+        else:
             # check if there is no child to the right (self.right) is None
-                # return False
+            if not self.right:
+                return False
             # otherwise
+            else:
                 # call contains on the right child (self.right)
-        pass
+                return self.right.contains(target)
 
 
     # Return the maximum value found in the tree
