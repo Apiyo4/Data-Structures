@@ -11,79 +11,79 @@ return elements in Last In First Out order.
    implementing a Stack?
 """
 # STACK ARRAY IMPLEMENTATION
-# class Stack:
-#     def __init__(self):
-#         self.size = 0
-#         self.storage = []
-
-#     def __len__(self):
-#         return self.size
-
-#     def push(self, value):
-#         self.size = self.size + 1
-#         self.storage.append(value)
-
-#     def pop(self):
-#         if self.size == 0:
-#             print("IndexError: Pop from empty List")
-#         else:
-#             self.size = self.size - 1
-#             return self.storage.pop()
-
-
-#STACK LINKED LIST IMPLEMENTATION
-class Node:
-    def  __init__(self, value=None, next_node=None):
-        self.value = value
-        self.next_node = next_node
-    
-    def get_value(self):
-        return self.value
-
-    def get_next(self):
-        return self.next_node
-
-    def set_next(self, new_node):
-        self.next_node = new_node
-
-        
 class Stack:
-    def __init__(self, node=None):
-        self.size = 1 if node is not None else 0
+    def __init__(self):
+        self.size = 0
         self.storage = []
-        self.head = node
-        self.tail = node
 
     def __len__(self):
         return self.size
 
     def push(self, value):
         self.size = self.size + 1
-        # self.storage.append(value)
-        new_node = Node(value, None)
-        if not self.head:
-            self.head = new_node
-            self.tail = new_node
-        else:
-            self.tail.next = new_node
-            self.tail =  new_node
+        self.storage.append(value)
 
     def pop(self):
-        if not self.tail:
-            return None
+        if self.size == 0:
+            print("IndexError: Pop from empty List")
+        else:
+            self.size = self.size - 1
+            return self.storage.pop()
+
+
+# #STACK LINKED LIST IMPLEMENTATION
+# class Node:
+#     def  __init__(self, value=None, next_node=None):
+#         self.value = value
+#         self.next_node = next_node
+    
+#     def get_value(self):
+#         return self.value
+
+#     def get_next(self):
+#         return self.next_node
+
+#     def set_next(self, new_node):
+#         self.next_node = new_node
+
         
-        if not self.head.get_next():
-            self.size -= 1
-            head = self.head
-            self.head = None
-            self.tail = None
-            return head.get_value()
+# class Stack:
+#     def __init__(self, node=None):
+#         self.size = 1 if node is not None else 0
+#         self.storage = []
+#         self.head = node
+#         self.tail = node
+
+#     def __len__(self):
+#         return self.size
+
+#     def push(self, value):
+#         self.size = self.size + 1
+#         # self.storage.append(value)
+#         new_node = Node(value, None)
+#         if not self.head:
+#             self.head = new_node
+#             self.tail = new_node
+#         else:
+#             self.tail.next = new_node
+#             self.tail =  new_node
+
+#     def pop(self):
+#         if not self.tail:
+#             return None
         
-        current_node = self.head
+#         if not self.head.get_next():
+#             self.size -= 1
+#             head = self.head
+#             self.head = None
+#             self.tail = None
+#             return head.get_value()
         
-        while (current_node.next_node is not None):
-            prev  = current_node
-            current_node = current_node.next_node
-        prev.next =  None
+#         current_node = self.head
+        
+#         while (current_node.next_node is not None):
+#             prev  = current_node
+#             current_node = current_node.next_node
+#         prev.next =  None
        
 
